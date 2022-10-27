@@ -1,0 +1,23 @@
+<form [formGroup]="cadastroForm" (ngSubmit)="submitForm()">
+    <label>
+        Nome:
+        <input type="text" formControlName="firstName" maxlength="5">
+
+        <span class="alert"
+            *ngIf="cadastroForm.get('firstName')?.errors && (cadastroForm.get('firstName')?.dirty ||cadastroForm.get('firstName')?.touched )">Favor,
+            Adicionar o nome</span>
+    </label>
+
+    <label>
+        Nome:
+        <input type="text" formControlName="lastName" maxlength="5">
+
+        <span class="alert"
+            *ngIf="cadastroForm.get('lastName')?.errors && (cadastroForm.get('firstName')?.dirty ||cadastroForm.get('firstName')?.touched )">Favor,
+            Adicionar o nome</span>
+    </label>
+    <button [disabled]="cadastroForm.invalid">Enviar</button>
+
+
+</form>
+{{cadastroForm.get('firstName')?.value}}
